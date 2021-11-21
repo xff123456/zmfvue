@@ -26,6 +26,7 @@
             scroll:null
           }
       },
+
       mounted() {
           //1.创建betterscroll对象
         this.scroll = new BScroll(this.$refs.wrapper,{
@@ -52,6 +53,14 @@
 
           })
         }
+
+        if(this.probeType===2 || this.probeType===3){
+          this.scroll.on('scrollStart',(position) =>{
+            this.$emit('scrollStart',position)
+
+          })
+        }
+
 
 
         //3. 监听上拉加载更多
